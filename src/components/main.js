@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import '../App.css'; // Corrected path to App.css
-import ImageButton from './ImageButton/ImageButton'; // Corrected path to ImageButton
-import FortuneDisplay from './FortuneDisplay/FortuneDisplay'; // Corrected path to FortuneDisplay
-
+import './Main.css';
+import ImageButton from './ImageButton/ImageButton';
+import FortuneDisplay from './FortuneDisplay/FortuneDisplay';
 
 const Main = () => {
   const [fortune, setFortune] = useState(null);
@@ -30,13 +29,28 @@ const Main = () => {
   };
 
   return (
-    <div className="app-container">
-      <h1 className="main-title">Ancient Fortune Tell</h1>
-      <p className="main-description">
-        Click the image to reveal your fortune.
-      </p>
-      <ImageButton onClick={handleFetchFortune} />
-      {fortune && <FortuneDisplay fortune={fortune} />}
+    <div className="main-container">
+      {/* Title Section */}
+      <header className="main-header">
+        <h1>Ancient Fortune Tell</h1>
+        <p>Click the image to roll your fortune stick and reveal your destiny!</p>
+      </header>
+
+      {/* Two-column Layout */}
+      <div className="main-content">
+        <div className="left">
+          <ImageButton onClick={handleFetchFortune} />
+        </div>
+        <div className="right">
+          {fortune ? (
+            <FortuneDisplay fortune={fortune} />
+          ) : (
+            <div className="placeholder">
+              <h3>Your fortune will appear here...</h3>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

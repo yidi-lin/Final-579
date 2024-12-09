@@ -1,22 +1,20 @@
-.fortune-display-container {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    text-align: center;
-  }
-  
-  .fortune-display-container h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #444;
-  }
-  
-  .fortune-display-container p {
-    font-size: 1.2rem;
-    color: #666;
-  }
-  
+.fortune-display {
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  text-align: center;
+}
+
+.fortune-display h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.fortune-display p {
+  font-size: 1.2rem;
+  color: #666;
+}

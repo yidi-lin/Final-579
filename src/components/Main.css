@@ -1,0 +1,62 @@
+/* Main container styles */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Header styles */
+.main-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.main-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.main-header p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Main content layout */
+.main-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Left column (Image Button) */
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+/* Right column (Fortune Display or Placeholder) */
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+/* Placeholder styling */
+.placeholder {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px dashed #aaa;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  color: #888;
+  text-align: center;
+}
