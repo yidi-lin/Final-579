@@ -1,0 +1,25 @@
+.image-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 100%;
+  }
+  
+  .image-button {
+    width: auto;
+    height: auto;
+    max-width: 60%; /* Restrict image to a maximum width */
+    max-height: 60vh; /* Restrict image to a maximum height */
+    aspect-ratio: 2 / 6; /* Maintain the 2:3 aspect ratio */
+    object-fit: cover; /* Ensure the image scales without distortion */
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .image-button:hover {
+    transform: scale(1.1); /* Slight zoom-in effect on hover */
+  }
+  
