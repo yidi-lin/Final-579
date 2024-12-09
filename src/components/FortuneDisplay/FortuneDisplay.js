@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
-import './FortuneDisplay.css';
+import React, { useState } from "react";
+import "./FortuneDisplay.css";
+import { translateText } from "../helper";
 
 const FortuneDisplay = ({ fortune }) => {
   const [translation, setTranslation] = useState(null); // To store the translation
   const [showTranslation, setShowTranslation] = useState(false); // To toggle translation visibility
 
-  const handleTranslate = () => {
-    // Mock translation function (replace with actual translation logic if needed)
-    const mockTranslation = {
-      title: 'Translation of ' + fortune.title,
-      interpretation: 'This is the English translation of the fortune: ' + fortune.interpretation,
-    };
-    setTranslation(mockTranslation);
+  const handleTranslate = async () => {
+    if (!fortune.interpretation) return;
+
+    const translatedText = await translateText(fortune.interpretation);
+    setTranslation(translatedText);
     setShowTranslation(true);
   };
 
@@ -34,8 +33,7 @@ const FortuneDisplay = ({ fortune }) => {
       {/* Display translation */}
       {showTranslation && (
         <div className="translation">
-          <h4>{translation.title}</h4>
-          <p>{translation.interpretation}</p>
+          <p>{translation}</p>
           <button className="hide-button" onClick={handleHideTranslation}>
             Hide Translation
           </button>
