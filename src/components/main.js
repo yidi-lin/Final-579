@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Main.css';
+import './main.css';
 import ImageButton from './ImageButton/ImageButton';
 import FortuneDisplay from './FortuneDisplay/FortuneDisplay';
 
