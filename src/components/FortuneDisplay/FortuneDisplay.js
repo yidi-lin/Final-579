@@ -8,29 +8,28 @@ const FortuneDisplay = ({ fortune }) => {
   // Translate function (moved from helper.js)
   const translateText = async (text) => {
     try {
-      const response = await fetch("http://localhost:5000/translate", {
+      const response = await fetch("http://localhost:5001/translate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        
         body: JSON.stringify({
-          text: text,
-          targetLang: "EN", // Target language
+          text: text, // The text you want to translate
+          targetLang: "en-GB", // Use British English
         }),
       });
-
-      if (!response.ok) {
-        throw new Error("Translation request failed");
-      }
-
+  
       const data = await response.json();
-      return data.translation; // Ensure the backend sends a `translation` field
+      console.log("Translation:", data.translation);
+      return data.translation;
     } catch (error) {
-      console.error("Error during translation:", error);
+      console.error("Translation failed:", error);
       return "Translation failed. Please try again.";
     }
   };
-
+  
+  
   const handleTranslate = async () => {
     if (!fortune.interpretation) return;
 

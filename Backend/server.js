@@ -7,26 +7,37 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const PORT = 5000;
+const PORT = 5001;
 
 // Get API key from .env
-const authKey = "56ab0e38-cec2-4931-b842-74fdb4dfa286:fx";
-console.log("Hardcoded Auth Key:", authKey);
+const authKey = process.env.DEEPL_AUTH_KEY;
+console.log("Loaded Auth Key:", authKey);
 
 if (!authKey) {
   throw new Error("DEEPL_AUTH_KEY is missing in .env file");
 }
 
+
 const translator = new deepl.Translator(authKey);
 
-app.use(cors());
+app.use(cors({
+  origin:'https://effective-chainsaw-6q59rrx9gr52rqjw-3008.app.github.dev', // Replace with your frontend URL
+  methods: "GET,POST",
+  allowedHeaders: "Content-Type",
+}));
 app.use(express.json());
+
 
 app.post("/translate", async (req, res) => {
   const { text, targetLang } = req.body;
 
+  if (!text || !targetLang) {
+    res.status(400).send("Invalid request payload.");
+    return;
+  }
+  
   try {
-    const result = await translator.translateText(text, null, targetLang);
+    const result = await translator.translateText(text, null, targetLang === 'en' ? 'en-GB' : targetLang);
     res.json({ translation: result.text });
   } catch (error) {
     console.error("Translation failed:", error);
