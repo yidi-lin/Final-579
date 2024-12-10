@@ -4,7 +4,6 @@ import ImageButton from "./ImageButton/ImageButton";
 import FortuneDisplay from "./FortuneDisplay/FortuneDisplay";
 import Background from "./background/background"; // Adjust path accordingly
 
-
 const Main = () => {
   const [fortune, setFortune] = useState(null);
 
@@ -32,26 +31,20 @@ const Main = () => {
 
   return (
     <div className="main-container">
-      <header className="main-header">
+      <Background title={fortune?.title} />
+      <div className="centered-box">
         <h1>Ancient Fortune Tell</h1>
         <p>Click the image to roll your fortune stick and reveal your destiny!</p>
-      </header>
-      <div className="main-content">
-        <div className="left">
-          <ImageButton onClick={handleFetchFortune} />
-        </div>
-        <div className="right">
-          {fortune ? (
-            <>
-              <Background title={fortune.title} />
-              <FortuneDisplay fortune={fortune} />
-            </>
-          ) : (
-            <div className="placeholder">
-              <h3>Your fortune will appear here...</h3>
-            </div>
-          )}
-        </div>
+        <ImageButton onClick={handleFetchFortune} />
+        {fortune ? (
+          <div className="answer-box">
+            <FortuneDisplay fortune={fortune} />
+          </div>
+        ) : (
+          <div className="placeholder">
+            <h3>Your fortune will appear here...</h3>
+          </div>
+        )}
       </div>
     </div>
   );
