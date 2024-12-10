@@ -3,29 +3,24 @@ import cors from "cors";
 import * as deepl from "deepl-node";
 import dotenv from "dotenv";
 
+// Load .env variables
 dotenv.config();
 
 const app = express();
 const PORT = 5000;
 
-// Set up CORS with specific origin or allow all origins
-app.use(
-  cors({
-    origin: "*", // Use "*" for all origins or specify your React app's URL
-    methods: "GET,POST", // Allow only necessary methods
-    allowedHeaders: "Content-Type,Authorization", // Allow only necessary headers
-  })
-);
+// Get API key from .env
+const authKey = "56ab0e38-cec2-4931-b842-74fdb4dfa286:fx";
+console.log("Hardcoded Auth Key:", authKey);
 
-app.use(express.json());
-
-const authKey = process.env.REACT_APP_DEEPL_API_KEY;
 if (!authKey) {
-  console.error("DEEPL_API_KEY is not set in the .env file!");
-  process.exit(1);
+  throw new Error("DEEPL_AUTH_KEY is missing in .env file");
 }
 
 const translator = new deepl.Translator(authKey);
+
+app.use(cors());
+app.use(express.json());
 
 app.post("/translate", async (req, res) => {
   const { text, targetLang } = req.body;

@@ -3,15 +3,26 @@ import "./FortuneDisplay.css";
 import { translateText } from "../helper";
 
 const FortuneDisplay = ({ fortune }) => {
-  const [translation, setTranslation] = useState(null); // To store the translation
+  const [translation, setTranslation] = useState({ title: "", interpretation: "" }); // Store both translations
   const [showTranslation, setShowTranslation] = useState(false); // To toggle translation visibility
 
   const handleTranslate = async () => {
-    if (!fortune.interpretation) return;
+    if (!fortune.title || !fortune.interpretation) return;
 
-    const translatedText = await translateText(fortune.interpretation);
-    setTranslation(translatedText);
-    setShowTranslation(true);
+    try {
+      // Translate both title and interpretation
+      const translatedTitle = await translateText(fortune.title);
+      const translatedInterpretation = await translateText(fortune.interpretation);
+
+      // Update state with translations
+      setTranslation({
+        title: translatedTitle,
+        interpretation: translatedInterpretation,
+      });
+      setShowTranslation(true);
+    } catch (error) {
+      console.error("Error during translation:", error);
+    }
   };
 
   const handleHideTranslation = () => {
@@ -33,7 +44,8 @@ const FortuneDisplay = ({ fortune }) => {
       {/* Display translation */}
       {showTranslation && (
         <div className="translation">
-          <p>{translation}</p>
+          <h4>{translation.title}</h4>
+          <p>{translation.interpretation}</p>
           <button className="hide-button" onClick={handleHideTranslation}>
             Hide Translation
           </button>

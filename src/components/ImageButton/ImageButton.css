@@ -22,4 +22,32 @@
   .image-button:hover {
     transform: scale(1.1); /* Slight zoom-in effect on hover */
   }
+  .image-button {
+    width: 150px; /* Adjust as needed */
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .image-button.shake {
+    animation: shake-animation 0.5s ease-in-out infinite;
+  }
+  
+  @keyframes shake-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(5deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
   

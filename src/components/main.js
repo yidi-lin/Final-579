@@ -28,6 +28,13 @@ const Main = () => {
     }
   };
 
+  const handleImageClick = () => {
+    // Simulate shaking effect and delay fetching fortune
+    setTimeout(() => {
+      handleFetchFortune();
+    }, 100); // Delay fetch by 3 seconds
+  };
+
   return (
     <div className="main-container">
       {/* Title Section */}
@@ -39,7 +46,7 @@ const Main = () => {
       {/* Two-column Layout */}
       <div className="main-content">
         <div className="left">
-          <ImageButton onClick={handleFetchFortune} />
+          <ImageButton onClick={handleImageClick} />
         </div>
         <div className="right">
           {fortune ? (
