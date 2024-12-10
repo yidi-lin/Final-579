@@ -1,12 +1,10 @@
-import React from 'react';
-import Main from './components/main'; // Update the path as needed
-import './App.css';
-
+import React from "react";
+import TestComponent from "./TestComponent";
 
 function App() {
   return (
-    <div className="App">
-      <Main />
+    <div id="root">
+      <TestComponent />
     </div>
   );
 }
