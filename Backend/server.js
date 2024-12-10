@@ -21,7 +21,7 @@ if (!authKey) {
 const translator = new deepl.Translator(authKey);
 
 app.use(cors({
-  origin:'https://effective-chainsaw-6q59rrx9gr52rqjw-3008.app.github.dev', // Replace with your frontend URL
+  origin:'https://yidi-lin.github.io/Final-579/', // Replace with your frontend URL
   methods: "GET,POST",
   allowedHeaders: "Content-Type",
 }));
