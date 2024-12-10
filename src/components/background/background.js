@@ -1,12 +1,12 @@
 import React from "react";
 import './background.css';
-import daj from "/workspaces/Final-579/src/assets/daj.jpg";
-import ji from "/workspaces/Final-579/src/assets/ji.jpeg";
-import banji from "/workspaces/Final-579/src/assets/banji.jpg";
-import xiaoji from "/workspaces/Final-579/src/assets/xiaoji.jpg";
-import moji from "/workspaces/Final-579/src/assets/moji.jpg";
-import xiong from "/workspaces/Final-579/src/assets/xiong.jpg";
-import moxiaoji from "/workspaces/Final-579/src/assets/moxiaoji.jpg";
+import daj from "./assets/daj.jpg";
+import ji from "./assets/ji.jpeg";
+import banji from "./assets/banji.jpg";
+import xiaoji from "./assets/xiaoji.jpg";
+import moji from "./assets/moji.jpg";
+import xiong from "./assets/xiong.jpg";
+import moxiaoji from "./assets/moxiaoji.jpg";
 
 const Background = ({ title }) => {
   const backgroundMap = {
