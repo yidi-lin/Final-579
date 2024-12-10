@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Final-579/static/css/main.ade593f2.css",
+    "main.js": "/Final-579/static/js/main.eb647124.js",
+    "static/js/787.ddb4019e.chunk.js": "/Final-579/static/js/787.ddb4019e.chunk.js",
+    "static/media/daj.jpg": "/Final-579/static/media/daj.78d669fb303e88e6e9d1.jpg",
+    "static/media/ji.jpeg": "/Final-579/static/media/ji.ca2e2a3b42730679e12b.jpeg",
+    "static/media/xiaoji.jpg": "/Final-579/static/media/xiaoji.bbb06fae94b3746d13a5.jpg",
+    "static/media/xiong.jpg": "/Final-579/static/media/xiong.65eaa0906f5babd8ead9.jpg",
+    "static/media/banji.jpg": "/Final-579/static/media/banji.4a42ebf469360e4fd946.jpg",
+    "static/media/moji.jpg": "/Final-579/static/media/moji.3f0415141dd1fafb853f.jpg",
+    "static/media/moxiaoji.jpg": "/Final-579/static/media/moxiaoji.a0b133bca51949e385db.jpg",
+    "static/media/image1.png": "/Final-579/static/media/image1.012450d921d0f5c64cef.png",
+    "index.html": "/Final-579/index.html",
+    "main.ade593f2.css.map": "/Final-579/static/css/main.ade593f2.css.map",
+    "main.eb647124.js.map": "/Final-579/static/js/main.eb647124.js.map",
+    "787.ddb4019e.chunk.js.map": "/Final-579/static/js/787.ddb4019e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ade593f2.css",
+    "static/js/main.eb647124.js"
+  ]
+}
