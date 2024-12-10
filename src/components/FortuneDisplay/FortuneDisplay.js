@@ -1,28 +1,42 @@
 import React, { useState } from "react";
 import "./FortuneDisplay.css";
-import { translateText } from "../helper";
 
 const FortuneDisplay = ({ fortune }) => {
-  const [translation, setTranslation] = useState({ title: "", interpretation: "" }); // Store both translations
+  const [translation, setTranslation] = useState(null); // To store the translation
   const [showTranslation, setShowTranslation] = useState(false); // To toggle translation visibility
 
-  const handleTranslate = async () => {
-    if (!fortune.title || !fortune.interpretation) return;
-
+  // Translate function (moved from helper.js)
+  const translateText = async (text) => {
     try {
-      // Translate both title and interpretation
-      const translatedTitle = await translateText(fortune.title);
-      const translatedInterpretation = await translateText(fortune.interpretation);
-
-      // Update state with translations
-      setTranslation({
-        title: translatedTitle,
-        interpretation: translatedInterpretation,
+      const response = await fetch("http://localhost:5000/translate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          text: text,
+          targetLang: "EN", // Target language
+        }),
       });
-      setShowTranslation(true);
+
+      if (!response.ok) {
+        throw new Error("Translation request failed");
+      }
+
+      const data = await response.json();
+      return data.translation; // Ensure the backend sends a `translation` field
     } catch (error) {
       console.error("Error during translation:", error);
+      return "Translation failed. Please try again.";
     }
+  };
+
+  const handleTranslate = async () => {
+    if (!fortune.interpretation) return;
+
+    const translatedText = await translateText(fortune.interpretation);
+    setTranslation(translatedText);
+    setShowTranslation(true);
   };
 
   const handleHideTranslation = () => {
@@ -44,8 +58,7 @@ const FortuneDisplay = ({ fortune }) => {
       {/* Display translation */}
       {showTranslation && (
         <div className="translation">
-          <h4>{translation.title}</h4>
-          <p>{translation.interpretation}</p>
+          <p>{translation}</p>
           <button className="hide-button" onClick={handleHideTranslation}>
             Hide Translation
           </button>
